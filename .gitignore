@@ -1,0 +1,41 @@
+# AOSP Build Outputs
+out/
+*.o
+*.a
+*.so
+*.lo
+*.pyc
+*.class
+
+# AOSP Source Trees (excluir diretórios do AOSP exceto handson_charger)
+lineage/bootable/
+lineage/build/
+lineage/cts/
+lineage/development/
+lineage/external/
+lineage/frameworks/
+lineage/hardware/
+lineage/kernel/
+lineage/packages/
+lineage/prebuilts/
+lineage/system/
+lineage/tools/
+lineage/vendor/motorola/
+lineage/vendor/qcom/
+
+# Excluir device/ exceto handson_charger
+lineage/device/motorola/sm8250-common/
+lineage/device/*/overlay/
+
+# Flash scripts
+flash/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
