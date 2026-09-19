@@ -171,6 +171,8 @@ public class DisplayRotation {
     int mUpsideDownRotation; // "other" portrait
 
     int mLastSensorRotation = -1;
+    
+    private boolean mVideoPlaying = true;
 
     private boolean mAllowSeamlessRotationDespiteNavBarMoving;
 
@@ -1308,13 +1310,14 @@ public class DisplayRotation {
                 || orientation == ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
                 || orientation == ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
                 || orientation == ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT) {
+
             // Otherwise, use sensor only if requested by the application or enabled
             // by default for USER or UNSPECIFIED modes.  Does not apply to NOSENSOR.
             if (sensorRotation != Surface.ROTATION_180
                     || getAllowAllRotations() == ALLOW_ALL_ROTATIONS_ENABLED
                     || orientation == ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
                     || orientation == ActivityInfo.SCREEN_ORIENTATION_FULL_USER) {
-                preferredRotation = sensorRotation;
+                preferredRotation = mVideoPlaying ? sensorRotation : lastRotation;
             } else {
                 preferredRotation = lastRotation;
             }
