@@ -1,0 +1,12 @@
+service handson_charger /vendor/bin/handson_charger
+    class charger
+    user root
+    group root system graphics
+    disabled
+    oneshot
+
+on property:sys.boot_from_charger_mode=1
+    start handson_charger
+
+on charger
+    start handson_charger

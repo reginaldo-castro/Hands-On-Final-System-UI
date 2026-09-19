@@ -1,0 +1,23 @@
+cc_binary {
+    name: "handson_charger",
+    srcs: ["main.cpp"],
+    cflags: ["-Wall"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libutils",
+        "libminui",
+        "libpng",
+        "libz",
+    ],
+    // Necessário para que o binário rode no modo mais básico do sistema
+    vendor: true,
+    recovery_available: true,
+}
+
+prebuilt_etc {
+    name: "init.handson_charger.rc",
+    src: "init.handson_charger.rc",
+    sub_dir: "init",
+    vendor: true,
+}
